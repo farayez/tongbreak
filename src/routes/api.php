@@ -20,5 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('server_status', [PublicController::class, 'server_status']);
-Route::get('server_status', [PublicController::class, 'server_status']);
+Route::get('categories', [PublicController::class, 'job_categories']);
 Route::post('category_metadata', [PublicController::class, 'category_metadata']);
