@@ -21,3 +21,8 @@ Route::get('/', function () {
 Route::get('foo', function () {
     return 'Hello World';
 });
+
+Route::get('test/{name?}', function ($name = 'sakib') {
+    return view('test', ['name' => strtoupper($name)]);
+});
+
