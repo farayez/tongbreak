@@ -1,0 +1,15 @@
+version: '3'
+
+networks:
+  laravel:
+
+services:
+  site:
+    build:
+      context: .
+      dockerfile: nginx.dockerfile
+    container_name: nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+
