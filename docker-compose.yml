@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 networks:
   laravel:
@@ -9,6 +9,7 @@ services:
       context: .
       dockerfile: nginx.dockerfile
     container_name: nginx
+    restart: unless-stopped
     ports:
       - "8088:80"
     volumes:
@@ -61,7 +62,7 @@ services:
     user: laravel
     networks:
       - laravel
-    entrypoint: ['composer', '--ignore-platform-reqs']
+    entrypoint: ["composer"]
 
   npm:
     image: node:13.7
@@ -69,7 +70,7 @@ services:
     volumes:
       - ./src:/var/www/html
     working_dir: /var/www/html
-    entrypoint: ['npm']
+    entrypoint: ["npm"]
 
   artisan:
     build:
@@ -82,6 +83,6 @@ services:
       - mysql
     working_dir: /var/www/html
     user: laravel
-    entrypoint: ['php', '/var/www/html/artisan']
+    entrypoint: ["php", "/var/www/html/artisan"]
     networks:
       - laravel
