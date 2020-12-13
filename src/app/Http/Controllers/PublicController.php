@@ -10,7 +10,7 @@ class PublicController extends Controller
     {
         return [
             'status' => 'online',
-            'message' => 'Welcome to the testbed for v214'
+            'message' => 'Welcome to the testbed for tong-break'
         ];
     }
 
@@ -29,7 +29,7 @@ class PublicController extends Controller
     public function category_metadata(Request $request)
     {
         $category = $request->input('category');
-        
+
         if ($category == 'house') {
             return [
                 'fields' => [
@@ -50,6 +50,5 @@ class PublicController extends Controller
                 ],
             ];
         }
-        
     }
 }
